@@ -17,9 +17,6 @@ public class Main {
     }
 
     public static <E> void fromArrayToCollection(E[] a, Collection<E> c){
-        if(c == null){
-            c = new ArrayList<>();
-        }
         for(E i: a){
             c.add(i);
         }

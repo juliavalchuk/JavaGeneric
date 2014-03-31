@@ -36,11 +36,8 @@ public class Main {
     }
 
     public static <E, T>  void copyAll(Collection<E> collection, Collection<T> out){
-       // collection = collection == null ? new ArrayList<>(): collection;
-        Collection<T> coll = new ArrayList<>();
-        coll.addAll(collection.stream().map(c -> (T) c).collect(Collectors.toList()));
-        out.clear();
-        out.addAll(coll);
+       // collection = collection == null ? new ArrayList<>(): collection;\
+        out.addAll(collection.stream().map(c -> (T) c).collect(Collectors.toList()));
     }
 
     public static <E extends Fruit> Collection<E> collectionOverTheGiven(Collection<E> collection, E obj){
