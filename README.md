@@ -1,0 +1,3 @@
+JavaGeneric
+===========
+with lambda
