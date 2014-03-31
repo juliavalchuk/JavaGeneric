@@ -1,2 +1,3 @@
 JavaGeneric
 ===========
+with lambda
