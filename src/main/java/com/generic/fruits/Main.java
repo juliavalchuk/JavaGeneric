@@ -26,22 +26,22 @@ public class Main {
 
         //or.forEach(System.out::println);
        // copyAll(or, fr);
-        copyAll(fr, or);
+        copyAll(or, or);
         or.forEach(System.out::println);
 
-        Orange orange = orangeFactory.create(5);
-        System.out.println("Fruit: " + orange);
-        collectionOverTheGiven(or, orange).forEach(System.out::println);
+        RedApple redApple = redAppleFactory.create(5);
+        System.out.println("Fruit: " + redApple);
+        collectionOverTheGiven(rapp, redApple).forEach(System.out::println);
 
     }
 
-    public static <E, T>  void copyAll(Collection<E> collection, Collection<T> out){
+    public static <E extends Fruit, T extends Fruit>  void copyAll(Collection<E> collection, Collection<T> out){
        // collection = collection == null ? new ArrayList<>(): collection;\
         out.addAll(collection.stream().map(c -> (T) c).collect(Collectors.toList()));
     }
 
-    public static <E extends Fruit> Collection<E> collectionOverTheGiven(Collection<E> collection, E obj){
-        return (collection.stream().filter((E c) -> c.getSize() > obj.getSize()).collect(Collectors.toList()));
+    public static <E extends Fruit & Comparable<? super E>> Collection<E> collectionOverTheGiven(Collection<E> collection, E obj){
+        return (collection.stream().filter((E c) -> c.compareTo(obj) > 0).collect(Collectors.toList()));
     }
 
     public static <E extends Fruit> List<E> generateFruitList(FruitFactory factory){

@@ -11,7 +11,7 @@ public class Apple extends Fruit implements Comparable<Apple> {
 
     @Override
     public int compareTo(Apple o) {
-        return 0;
+        return size - o.getSize();
     }
 
     @Override
