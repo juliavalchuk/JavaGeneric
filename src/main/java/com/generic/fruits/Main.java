@@ -25,13 +25,13 @@ public class Main {
         List<Melon> mel = generateFruitList(melonFactory);
 
         //or.forEach(System.out::println);
-       // copyAll(or, fr);
         copyAll(or, or);
+        copyAll(app, rapp);
         or.forEach(System.out::println);
 
-        RedApple redApple = redAppleFactory.create(5);
-        System.out.println("Fruit: " + redApple);
-        collectionOverTheGiven(rapp, redApple).forEach(System.out::println);
+        GreenApple greenApple = new GreenApple(5);
+        System.out.println("Fruit: " + greenApple);
+        collectionOverTheGiven(rapp, greenApple).forEach(System.out::println);
 
     }
 
@@ -40,7 +40,7 @@ public class Main {
         out.addAll(collection.stream().map(c -> (T) c).collect(Collectors.toList()));
     }
 
-    public static <E extends Fruit & Comparable<? super E>> Collection<E> collectionOverTheGiven(Collection<E> collection, E obj){
+    public static <E extends Fruit & Comparable<? super E>> Collection<E> collectionOverTheGiven(Collection<? extends E> collection, E obj){
         return (collection.stream().filter((E c) -> c.compareTo(obj) > 0).collect(Collectors.toList()));
     }
 
