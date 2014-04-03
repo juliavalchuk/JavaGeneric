@@ -35,7 +35,7 @@ public class Main {
 
     }
 
-    public static <E extends Fruit, T extends Fruit>  void copyAll(Collection<E> collection, Collection<T> out){
+    public static <E extends Fruit, T super Fruit>  void copyAll(Collection<E> collection, Collection<T> out){
        // collection = collection == null ? new ArrayList<>(): collection;\
         out.addAll(collection.stream().map(c -> (T) c).collect(Collectors.toList()));
     }
